@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>py_form</title>
+    <style>
+        h5{
+            margin: 0px 20px;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .two-table-h4{
+            margin: 0px;
+        }
+        label{
+            margin: 0px 2px;
+        }
+    </style>
+</head>
+<body>
+   <form method="POST">
+       {% csrf_token %}
+    <div id="front-side" style="border: 2px solid green;">
+        <div id="one" style="border: 2px solid black; margin: 20px; padding: 10px;" >
+            <header style="text-align: center;">
+                <h2 style="text-decoration: underline; ">General details (FILL THIS FORM IN UPPERCASE ONLY)</h2>
+            </header>
+            <table>
+                <tr>
+                    <td><label for="">Full name</label></td>
+                    <td> <input type="text" placeholder="full name" name="full_name"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Gender</label></td>
+                    <td style="display: flex;">
+                        <input type="checkbox" name="gender" value="=female"><h4 style=" margin: 0px;">Female</h4>
+                        <input type="checkbox" name="gender" value="male"><h4 style=" margin: 0px;">Male</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">date of birth</label></td>
+                    <td><input type="date" placeholder="date of birth" name="dob"></td>
+                </tr>
+                <tr>
+                    <td><label for="">mobile no</label></td>
+                    <td><input type="number" maxlength="10" placeholder="phone number" name="phone"></td>
+                </tr>
+                <tr>
+                    <td><label for="">mobile no(repeat)</label></td>
+                    <td><input type="number" maxlength="10"  placeholder="repeat_phone_number" name="phone_repeat"></td>
+                </tr>
+                <tr>
+                    <td><label for="">email id(uppercase)</label></td>
+                    <td> <input type="email" placeholder="write your email id" name="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="">email id(repeat)</label></td>
+                    <td><input type="email" placeholder="repeat_email_id" name="email_repeat"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <header style="text-align: center;">
+            <h2 style="text-decoration: underline; ">Educational Details</h2>
+        </header>
+        <div id="two" style="border: 2px solid black; margin: 20px; padding: 10px;">
+            <header style="display: flex; justify-content: center;">
+                <h3>10<sup>th</sup>....</h3> 
+                <h5><label for="">sslc(State board)</label> <input type="checkbox" name="ten_th" value="state_bord"></h5>
+                <h5><label for="">CBSE</label> <input type="checkbox" name="ten_th" value="CBSE"></h5>
+                <h5> <label for="">ICSE</label> <input type="checkbox" name="ten_th" value="ICSE"></h5>
+                <h5> <label for="">IGCSE</label> <input type="checkbox" name="ten_th" value="IGCSE"></h5>
+            </header>
+            <table >
+                <tr>
+                    <td><label for="">puc/12<sup>th</sup>:</label> </td>
+                    <td><input type="text" name="puc" ></td>
+                    <td  colspan="2"> 
+                       <span>Diploma:</span>
+                         <label for="">Regular</label> <input type="checkbox" name="diploma" value="regular">    
+                         <label for="">correspondence</label> <input type="checkbox" name="diploma" value="correspondence"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Aggregate %:</label> </td> <td><input type="number"  name="aggregate_12"></td>
+                    <td> <label for="">Aggregate %(All Sem):</label> </td> <td><input type="number" name="aggregate_diploma"></td> 
+                </tr>
+                <tr>
+                    <td> <label for="">Year of pass out:</label> </td>   <td><input type="number" maxlength="4" name="yop_12"></td>
+                    <td> <label for="">Year of pass out:</label></td>   <td> <input type="number" maxlength="4" name="yop_diploma"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td> <label for="">college name:</label> </td> <td><input type="text" name="diploma_college"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" > 
+                        <label for="">Diploma</label>
+                        <label for="">CSc</label><input type="checkbox" name="diploma_branch" value="CSc">
+                        <label for="">IT</label><input type="checkbox" name="diploma_branch" value="IT">
+                        <label for="">EEE</label><input type="checkbox" name="diploma_branch" value="EEE">
+                        <label for="">EC</label><input type="checkbox" name="diploma_branch" value="EC">
+                        <label for="">MECH</label><input type="checkbox" name="diploma_branch" value="MECH">
+                        <label for="">CIVIL</label><input type="checkbox" name="diploma_branch" value="CIVIL">
+                        <label for="">OTHER</label><input type="checkbox" name="diploma_branch" value="other_diploma">
+                        <label for="">OTHER:</label><input type="text" name="diploma_branch_other">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <header style="text-align: center; margin: 19.92px 0px;">
+            <h2 style="text-decoration: underline; display: inline; ">Degree:</h2>
+            <label for=""> regular</label><input type="checkbox" name="degree" value="regular">
+            <label for="">Correspondence</label><input type="checkbox" name="degree" value="correspondence">
+        </header>
+
+        <div id="three"  style="border: 2px solid black; margin: 20px; padding: 10px;">
+            <h2>Degree:</h2>
+            <div class="degree" style=" margin-left: 10px;">
+                <label for="">BE</label><input type="checkbox" name="degree_branch" value="BE">
+                <label for="">B.TECH</label><input type="checkbox"  name="degree_branch" value="B.TECH">
+                <label for="">B.Sc</label><input type="checkbox"  name="degree_branch" value="B.Sc">
+                <label for="">BCA</label><input type="checkbox"  name="degree_branch" value="BCA">
+                <label for="">B.COM</label><input type="checkbox"  name="degree_branch" value="B.COM">
+                <label for="">BBM</label><input type="checkbox"  name="degree_branch" value="BBM">
+                <label for="">BA</label><input type="checkbox"  name="degree_branch" value="BA">
+                <label for="">C.Sc</label><input type="checkbox"  name="degree_branch" value="C.Sc">
+                <label for="">IT</label><input type="checkbox"  name="degree_branch" value="IT">
+                <label for="">INF.Sc</label><input type="checkbox"  name="degree_branch" value="INF.Sc">
+                <label for="">EC</label><input type="checkbox"  name="degree_branch" value="EC">
+                <label for="">Mech</label><input type="checkbox"  name="degree_branch" value="Mech">
+                <label for="">Civil</label><input type="checkbox"  name="degree_branch" value="Civil">
+                <label for="">Electrical</label><input type="checkbox"  name="degree_branch" value="Electrical">
+                
+            </div>
+            <div class="degree" style="margin-bottom: 10px; margin-left: 10px;">
+                <label for="">AE</label><input type="checkbox"  name="degree_branch" value="AE">
+                <label for="">Bio Mech</label><input type="checkbox"  name="degree_branch" value="Bio Mech">
+                <label for="">Bio Tech</label><input type="checkbox"  name="degree_branch" value="Bio Tech">
+                <label for="">Chemical</label><input type="checkbox"  name="degree_branch" value="Chemical">
+                <label for="">Envi</label><input type="checkbox"  name="degree_branch" value="Envi">
+                <label for="">Telecom</label><input type="checkbox"  name="degree_branch" value="Telecom">
+                <label for="">Instrumentation</label><input type="checkbox"  name="degree_branch" value="Instrumentation">
+                <label for="">Other</label><input type="checkbox"  name="degree_branch" value="other">
+            </div>
+        <table >
+            <tr>         
+                <td><label for="">Other</label> </td><td>  <input type="text" name="degree_branch_other" ></td>
+                <td><label for="">percentage(1 to 8 sesm)</label></td><td> <input type="number" name="agreegate_degree"></td>
+                <td ><label for="">year of passing</label><input type="date" name="degree_yop"></td>
+            </tr>
+            <tr>
+                <td><label for="">University</label></td><td> <input type="text" name="uni_name"></td>
+                <td><label for="">unniversity roll(usn) no.</label></td><td> <input type="text" name="usn"></td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr>
+                <td><label for="">Collage Name</label></td><td> <input type="text" name="clg_name"></td>
+                <td><label for="">Place</label></td><td> <input type="text" name="place_clg"></td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <span>Did you fail and then clear the subject in degree:</span>
+                    <label for="">yes</label><input type="checkbox" name="backlog" value="yes">
+                    <label for="">No</label><input type="checkbox" name="backlog" value="no">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <span>have any existing backlog:</span>
+                    <label for="">yes</label><input type="checkbox" name="current_backlog" value="yes">
+                    <label for="">No</label><input type="checkbox" name="current_backlog" value="no">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <span>got year gap in degree:</span>
+                    <label for="">yes</label><input type="checkbox" name="gap_in_degree" value="yes">
+                    <label for="">No</label><input type="checkbox" name="gap_in_degree" value="no">
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    <div style="border: 2px solid green;"> 
+        <header style="text-align: center; margin: 19.92px 0px;">
+            <h2 style="text-decoration: underline; display: inline; ">Master deree of post graduation:</h2>
+            <label for=""> regular</label><input type="checkbox" name="master" value="regular">
+            <label for="">Correspondence</label><input type="checkbox" name="master" value="correspondence">
+        </header>
+
+        <div id="one" style="border: 2px solid black; margin: 20px; padding: 10px;">
+    
+            <div class="degree" style=" margin-left: 10px;">
+                <label for="">M tech</lable><input type="checkbox" name="master_qualification" value="M.tech">
+                <lable for="">MCA</lable><input type="checkbox" name="master_qualification" value="MCA">
+                <lable for="">M.Sc</lable><input type="checkbox" name="master_qualification" value="M.Sc">
+                <lable for="">MBA</lable><input type="checkbox" name="master_qualification" value="MBA">
+                <lable for="">Ms</lable><input type="checkbox" name="master_qualification" value="Ms">
+                
+            </div>
+            <div class="degree" style="margin-bottom: 10px; margin-left: 10px;">
+                <span>stream:</span>
+                <lable  for="">C Sc</lable><input type="checkbox" name="master_degree" value="CSc">
+                <lable  for="">IT</lable><input type="checkbox" name="master_degree" value="IT">
+                <lable for="">EEE</lable><input type="checkbox" name="master_degree" value="EEE">
+                <lable for="">IS</lable><input type="checkbox" name="master_degree" value="IS">
+                <lable for="">EC</lable><input type="checkbox" name="master_degree" value="EC">
+                <lable for="">Mech</lable><input type="checkbox" name="master_degree" value="Mech">
+                <lable for="">Civil</lable><input type="checkbox" name="master_degree" value="Civil">
+                <lable for="">Other</lable><input type="checkbox" name="master_degree" value="other">
+                
+            </div>
+            <table>
+                <tr>         
+                    <td><label for="">Other</label> </td><td>  <input type="text" name="other_master_degree"></td>
+                    <td><label for="">percentage(1 to 8 sesm)</label></td><td> <input type="number" name="aggrigate_master"></td>
+                    <td ><label for="">year of passing</label><input type="date" name="master_yop"></td>
+                </tr>
+                <tr>
+                    <td><label for="">University</label></td><td> <input type="text" name="master_uni_name"></td>
+                    <td><label for="">University roll(usn) no.</label></td><td> <input type="text" name="master_usn"></td>
+                    <td rowspan="2"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Collage Name</label></td><td> <input type="text" name="master_clg_name"></td>
+                    <td><label for="">Place</label></td><td> <input type="text" name="Master_clg_place"></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <span>Did you fail and then clear the subject in degree:</span>
+                        <label for="">yes</label><input type="checkbox" name="master_fail_clear" value="yes">
+                        <label for="">No</label><input type="checkbox" name="master_fail_clear" value="no">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <span>have any existing backlog:</span>
+                        <label for="">yes</label><input type="checkbox" name="master_existing_backlog" value="yes">
+                        <label for="">No</label><input type="checkbox" name="master_existing_backlog" value="no">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <span>got year gap in degree:</span>
+                        <label for="">yes</label><input type="checkbox" name="year_gap_master" value="yes">
+                        <label for="">No</label><input type="checkbox" name="year_gap_master" value="no">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="two" style="border: 2px solid black; margin: 20px; padding: 10px;"> 
+            <table>
+                <tr>
+                    <td> <label for="">Certifications:</label></td>
+                    <td><input type="text" width="500px" placeholder="Only international certified s/w cedrtifications" name="certificate" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>  <span>Ready to relocte to work:</span></td>
+                    <td><label for="">yes</label><input type="checkbox" name="ready_to_relocate" value="yes">
+                        <label for="">No</label><input type="checkbox"  name="ready_to_relocate" value="no">
+                    </td>
+                </tr>
+                <tr>
+                    <td><span> If yes, preferred Location:</span></td>
+                    <td> <label for="">Bengaluru</label><input type="checkbox" name='Location' value='Bengaluru'>
+                        <label for="">Chennai</label><input type="checkbox" name='Location' value='Chennai'>
+                        <label for="">Hyderabad</label><input type="checkbox" name='Location' value='Hyderabad'>
+                        <label for="">Kerala</label><input type="checkbox" name='Location' value='Kerala'>
+                        <label for="">Pune</label><input type="checkbox" name='Location' value='Pune'> 
+                        <label for="">Mumbai</label><input type="checkbox" name='Location' value='Mumbai'>
+                        <label for="">Delhi</label><input type="checkbox" name='Location' value='Delhi'>
+                        <label for="">Gandhinagar</label><input type="checkbox" name='Location' value="Gandhinagar">
+                        <label for="">Other</label><input type="checkbox" name='Location' value='other'>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>Do you have passport:</span></td>
+                    <td><label for="">yes</label><input type="checkbox" name="you_have_passport" value="yes">
+                        <label for="">No</label><input type="checkbox" name="you_have_passport" value="no"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>Do you have pan card:</span></td>
+                    <td><label for="">yes</label><input type="checkbox" name="you_have_pancard" value="yes">
+                        <label for="">No</label><input type="checkbox" name="you_have_pancard" value="no">
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>Do you have adhar card:</span></td>
+                    <td><label for="">yes</label><input type="checkbox" name="you_have_adharcard" value="yes">
+                        <label for="">No</label><input type="checkbox" name="you_have_adharcard" value="no">
+                        <label for="">adhar no.</label><input type="number" name="aadhar_no">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <header style=" margin: 19.92px 20px;">
+            <h2 style="text-decoration: underline; display: inline; ">Address :</h2>
+        </header>
+        <div id="three" style="border: 2px solid black; margin: 20px; padding: 10px;">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <label for="">Father/Husband's name :</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="text" name="father_name" id="father_name">
+                    </td>
+                 
+                </tr>
+                <tr>
+                    <td><label for="">House no.</label></td>
+                    <td><input type="text" name="house_no" id=""></td>
+                    <td><label for="">Street no.</label></td>
+                    <td><input type="text" name="street_no" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="">Area name</label></td>
+                    <td><input type="text" name="area_name" id=""></td>
+                    <td><label for="">Pin code</label></td>
+                    <td><input type="number" name="pincode" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="">City</label></td>
+                    <td><input type="text" name="city" id=""></td>
+                    <td><label for="">State</label></td>
+                    <td><input type="text" name="state" id=""></td>
+                </tr>
+            </table>
+        </div>
+        <div style=" text-align: center;">
+            <button  style="margin: 20px;" type="submit">submit</button>
+        </div>
+    </div>
+   </form>
+</body>
+</html>
